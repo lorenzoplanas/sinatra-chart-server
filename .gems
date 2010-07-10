@@ -1,2 +1,5 @@
 sinatra --version '>= 1.0'
+json
+gruff
+rmagick
 sinatra-charter
