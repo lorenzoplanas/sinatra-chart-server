@@ -3,6 +3,7 @@ require 'sinatra'
 require 'sinatra-charter'
 
 class Charter < Sinatra::Base
+  helpers Sinatra::Charter::Server
   set :env,                   :production
   set :app_file,              __FILE__
   set :root,                  File.dirname(__FILE__)
