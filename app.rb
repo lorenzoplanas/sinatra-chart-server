@@ -1,9 +1,9 @@
 # encoding: UTF-8
-require 'sinatra'
+require 'sinatra/base'
 require 'sinatra-charter'
 
 class Charter < Sinatra::Base
-  helpers Sinatra::Charter::Server
+  helpers Sinatra::Charter::Helpers
   set :env,                   :production
   set :app_file,              __FILE__
   set :root,                  File.dirname(__FILE__)
@@ -12,6 +12,5 @@ class Charter < Sinatra::Base
   enable                      :static, :show_exceptions
 
   post %r{^/chart/(\w+)\.json/?$} do send_chart_url :from => 'json' end 
-  post %r{^/chart/(\w+)/?$}       do send_chart_url end
-
+  post %r{^/chart/(\w+)/?$}       do send_chart_url                 end
 end
